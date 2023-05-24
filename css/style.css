@@ -1,0 +1,67 @@
+.container {
+  line-height: 1.5;
+  font-size: 18px;
+  margin-top: 30px;
+  font-family: "Gruppo", cursive;
+  font-family: "Poppins", sans-serif;
+}
+.weather {
+  background-image: url(https://png.pngtree.com/thumb_back/fh260/background/20200801/pngtree-blue-sky-in-the-soft-white-clouds-natural-sky-background-illustration-image_374179.jpg);
+  background-size: cover;
+  margin: 20px 0;
+  padding: 20px 16px 24px;
+  width: 598px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 2px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border-radius: 10px;
+}
+.cities {
+  justify-content: space-evenly;
+  border: 1px solid #0d0b88;
+  margin-bottom: 25px;
+  margin: 10px;
+  border-radius: 10px;
+}
+.search-bar {
+  text-align: left;
+  margin: 25px 10px;
+  text-align: center;
+  display: inline;
+}
+.bar {
+  border: 1px solid #0d0b88;
+  width: 350px;
+  border-radius: 10px;
+  height: 35px;
+}
+[value],
+.current-location {
+  border: 1px solid #0d0b88;
+  border-radius: 10px;
+  background: #ffffff;
+  height: 35px;
+}
+.sub-head {
+  margin: 25px;
+  text-align: center;
+  padding-left: 15px;
+}
+.current-city {
+  font-size: 40px;
+}
+.weathers {
+  text-align: center;
+  padding-left: 45px;
+}
+.sub-head-right {
+  text-align: left;
+}
+.weather-icon {
+  color: #ff6f3c;
+  font-size: 35px;
+}
+.fah-link {
+  display: block;
+  margin: 20px 170px;
+  text-decoration: none;
+}
