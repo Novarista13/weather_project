@@ -41,6 +41,9 @@
   background: #ffffff;
   height: 35px;
 }
+[value]:hover,.current-location:hover {
+  background: #BBE1FF;
+}
 .sub-head {
   margin: 25px;
   text-align: center;
