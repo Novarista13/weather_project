@@ -17,10 +17,10 @@ let today = document.querySelector("#default-time");
 today.innerHTML = `${day} ${hour}:${minutes}`;
 
 // For the cities from the bar
-let city1 = document.querySelector("#thanlyin");
+let city1 = document.querySelector("#yangon");
 city1.addEventListener("click",showCity1);
 
-let city2 = document.querySelector("#yangon");
+let city2 = document.querySelector("#taunggyi");
 city2.addEventListener("click",showCity2);
 
 let city3 = document.querySelector("#mandalay");
