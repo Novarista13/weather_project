@@ -26,6 +26,9 @@
   text-decoration: none;
   color: #000;
 }
+.city:hover {
+  opacity: 0.3;
+}
 .search-bar {
   text-align: left;
   margin: 25px 10px;
@@ -65,6 +68,9 @@
 }
 .weather-icon {
   color: #ff6f3c;
+  font-size: 35px;
+}
+.city-temp {
   font-size: 35px;
 }
 .fah-link {

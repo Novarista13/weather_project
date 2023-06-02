@@ -16,6 +16,45 @@ let minutes = now.getMinutes();
 let today = document.querySelector("#default-time");
 today.innerHTML = `${day} ${hour}:${minutes}`;
 
+// For the cities from the bar
+let city1 = document.querySelector("#thanlyin");
+city1.addEventListener("click",showCity1);
+
+let city2 = document.querySelector("#yangon");
+city2.addEventListener("click",showCity2);
+
+let city3 = document.querySelector("#mandalay");
+city3.addEventListener("click",showCity3);
+
+function showCity1(event) {
+  event.preventDefault();
+  let city = document.querySelector(".city1")
+  let displayCity = city.innerHTML;
+  let apiKey = "62bc298785543e137bc6756e514eb1c3";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${displayCity}&units=metric&appid=${apiKey}`;
+  axios.get(`${apiUrl}`).then(showTemp);
+}
+function showCity2(event) {
+  event.preventDefault();
+  let city = document.querySelector(".city2")
+  let displayCity = city.innerHTML;
+  let apiKey = "62bc298785543e137bc6756e514eb1c3";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${displayCity}&units=metric&appid=${apiKey}`;
+  axios.get(`${apiUrl}`).then(showTemp);
+}
+function showCity3(event) {
+  event.preventDefault();
+  let city = document.querySelector(".city3")
+  let displayCity = city.innerHTML;
+  let apiKey = "62bc298785543e137bc6756e514eb1c3";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${displayCity}&units=metric&appid=${apiKey}`;
+  axios.get(`${apiUrl}`).then(showTemp);
+}
+
+// For the searched city
+let form = document.querySelector("form");
+form.addEventListener("submit", getCity);
+
 function getCity(event) {
   event.preventDefault();
 
@@ -27,12 +66,15 @@ function getCity(event) {
 
   axios.get(`${apiUrl}`).then(showTemp);
 }
-function showTemp(response) {
-  let currentCity = document.querySelector("#default-city");
-  currentCity.innerHTML = response.data.name;
-  let temperature = Math.round(response.data.main.temp);
-  let cityTemp = document.querySelector(".city-temp");
-  cityTemp.innerHTML = `${temperature}°`;
+
+// For current position
+let currentBtn = document.querySelector(".current-location");
+currentBtn.addEventListener("click", showPosition);
+
+function showPosition() {
+  navigator.geolocation.getCurrentPosition(currentPosition);
+  let city = document.querySelector("#searched-city");
+  city.value = "";
 }
 
 function currentPosition(position) {
@@ -43,17 +85,18 @@ function currentPosition(position) {
   axios.get(`${apiUrl}`).then(showTemp);
 }
 
-function showPosition() {
-  navigator.geolocation.getCurrentPosition(currentPosition);
-  let city = document.querySelector("#searched-city");
-  city.value = "";
+// Showing Temperature
+function showTemp(response) {
+  let currentCity = document.querySelector("#default-city");
+  currentCity.innerHTML = response.data.name;
+  let temperature = Math.round(response.data.main.temp);
+  let cityTemp = document.querySelector(".city-temp");
+  cityTemp.innerHTML = `${temperature}°`;
 }
 
-let currentBtn = document.querySelector(".current-location");
-currentBtn.addEventListener("click", showPosition);
-
-let form = document.querySelector("form");
-form.addEventListener("submit", getCity);
+// Convert Temp
+let fahLink = document.querySelector("#fahrenheit-link");
+fahLink.addEventListener("click", convertTemp);
 
 function convertTemp() {
   let unit = document.querySelectorAll("#unit");
@@ -77,5 +120,4 @@ function convertTemp() {
   }
 }
 
-let fahLink = document.querySelector("#fahrenheit-link");
-fahLink.addEventListener("click", convertTemp);
+
