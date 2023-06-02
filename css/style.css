@@ -48,8 +48,9 @@
   background: #ffffff;
   height: 35px;
 }
-[value]:hover,.current-location:hover {
-  background: #BBE1FF;
+[value]:hover,
+.current-location:hover {
+  background: #bbe1ff;
 }
 .sub-head {
   margin: 20px;
@@ -64,15 +65,20 @@
   text-align: center;
   padding-left: 45px;
 }
+.col-4 {
+  margin: 20px 0;
+  line-height: 1.2;
+}
 .sub-head-right {
   text-align: left;
 }
 .weather-icon {
   color: #ff6f3c;
-  font-size: 40px;
+  font-size: 50px;
 }
 .city-temp {
-  font-size: 35px;
+  font-size: 30px;
+  margin-top: 0;
 }
 .fah-link {
   display: block;
@@ -81,4 +87,13 @@
 }
 footer {
   margin-left: 145px;
+}
+.deg-unit {
+  color: #202124;
+  display: inline-block;
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: 6px;
+  padding-left: 6px;
+  vertical-align: top;
 }

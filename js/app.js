@@ -18,17 +18,17 @@ today.innerHTML = `${day} ${hour}:${minutes}`;
 
 // For the cities from the bar
 let city1 = document.querySelector("#yangon");
-city1.addEventListener("click",showCity1);
+city1.addEventListener("click", showCity1);
 
 let city2 = document.querySelector("#taunggyi");
-city2.addEventListener("click",showCity2);
+city2.addEventListener("click", showCity2);
 
 let city3 = document.querySelector("#mandalay");
-city3.addEventListener("click",showCity3);
+city3.addEventListener("click", showCity3);
 
 function showCity1(event) {
   event.preventDefault();
-  let city = document.querySelector(".city1")
+  let city = document.querySelector(".city1");
   let displayCity = city.innerHTML;
   let apiKey = "62bc298785543e137bc6756e514eb1c3";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${displayCity}&units=metric&appid=${apiKey}`;
@@ -36,7 +36,7 @@ function showCity1(event) {
 }
 function showCity2(event) {
   event.preventDefault();
-  let city = document.querySelector(".city2")
+  let city = document.querySelector(".city2");
   let displayCity = city.innerHTML;
   let apiKey = "62bc298785543e137bc6756e514eb1c3";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${displayCity}&units=metric&appid=${apiKey}`;
@@ -44,7 +44,7 @@ function showCity2(event) {
 }
 function showCity3(event) {
   event.preventDefault();
-  let city = document.querySelector(".city3")
+  let city = document.querySelector(".city3");
   let displayCity = city.innerHTML;
   let apiKey = "62bc298785543e137bc6756e514eb1c3";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${displayCity}&units=metric&appid=${apiKey}`;
@@ -87,11 +87,19 @@ function currentPosition(position) {
 
 // Showing Temperature
 function showTemp(response) {
+  console.log(response);
   let currentCity = document.querySelector("#default-city");
   currentCity.innerHTML = response.data.name;
   let temperature = Math.round(response.data.main.temp);
   let cityTemp = document.querySelector(".city-temp");
-  cityTemp.innerHTML = `${temperature}°`;
+  cityTemp.innerHTML = temperature;
+  let humidity = document.querySelector("#humidity");
+  humidity.innerHTML = response.data.main.humidity;
+  let wind = document.querySelector("#wind");
+  wind.innerHTML = response.data.wind.speed;
+  let weatherState = document.querySelector("#weather-state");
+  weatherState.innerHTML = response.data.weather[0].main;
+
 }
 
 // Convert Temp
@@ -119,5 +127,3 @@ function convertTemp() {
     }
   }
 }
-
-
