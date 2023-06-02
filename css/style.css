@@ -53,12 +53,12 @@
 }
 .sub-head {
   margin: 20px;
-  margin-bottom: 25px;
+  margin-top: 0;
   text-align: center;
   padding-left: 15px;
 }
 .current-city {
-  font-size: 50px;
+  font-size: 45px;
 }
 .weathers {
   text-align: center;
@@ -69,7 +69,7 @@
 }
 .weather-icon {
   color: #ff6f3c;
-  font-size: 35px;
+  font-size: 40px;
 }
 .city-temp {
   font-size: 35px;
