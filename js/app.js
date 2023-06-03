@@ -49,8 +49,9 @@ function showCity(event) {
   }
 
   let displayCity = city.innerHTML;
-  let apiKey = "62bc298785543e137bc6756e514eb1c3";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${displayCity}&units=metric&appid=${apiKey}`;
+  let apiKey = "0b144datab34dc1d9160168o8d6493f5";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${displayCity}&key=${apiKey}&units=metric`;
+
   axios.get(`${apiUrl}`).then(showTemp);
 }
 
@@ -64,8 +65,8 @@ function getCity(event) {
   let city = document.querySelector("#searched-city");
   let displayCity = city.value;
 
-  let apiKey = "62bc298785543e137bc6756e514eb1c3";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${displayCity}&units=metric&appid=${apiKey}`;
+  let apiKey = "0b144datab34dc1d9160168o8d6493f5";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${displayCity}&key=${apiKey}&units=metric`;
 
   axios.get(`${apiUrl}`).then(showTemp);
 }
@@ -81,26 +82,35 @@ function showPosition() {
 }
 
 function currentPosition(position) {
+  
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let apiKey = "62bc298785543e137bc6756e514eb1c3";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+
+  let apiKey = "0b144datab34dc1d9160168o8d6493f5";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${lat}&lon=${lon}&units=metric&key=${apiKey}`;
+
   axios.get(`${apiUrl}`).then(showTemp);
 }
 
 // Showing Temperature
 function showTemp(response) {
+  if (!response.data.city) return false;
+  
   let currentCity = document.querySelector("#default-city");
-  currentCity.innerHTML = response.data.name;
-  let temperature = Math.round(response.data.main.temp);
+  currentCity.innerHTML = response.data.city;
+  
+  let temperature = Math.round(response.data.daily[0].temperature.day);
   let cityTemp = document.querySelector(".city-temp");
   cityTemp.innerHTML = temperature;
+
   let humidity = document.querySelector("#humidity");
-  humidity.innerHTML = response.data.main.humidity;
+  humidity.innerHTML = response.data.daily[0].temperature.humidity;
+
   let wind = document.querySelector("#wind");
-  wind.innerHTML = response.data.wind.speed;
+  wind.innerHTML = response.data.daily[0].wind.speed;
+
   let weatherState = document.querySelector("#weather-state");
-  weatherState.innerHTML = response.data.weather[0].main;
+  weatherState.innerHTML = response.data.daily[0].condition.description;
 }
 
 // Convert Temp
@@ -118,11 +128,11 @@ function convertTemp() {
     if (tempUnit === "C") {
       let fahTemp = Math.round((temp * 9) / 5 + 32);
       unit[x].innerHTML = "F";
-      curTemp[x].innerHTML = `${fahTemp}°`;
+      curTemp[x].innerHTML = fahTemp;
       fahLink.innerHTML = "Convert to Celsius";
     } else if (tempUnit === "F") {
       let cenTemp = Math.round(((temp - 32) * 5) / 9);
-      curTemp[x].innerHTML = `${cenTemp}°`;
+      curTemp[x].innerHTML = cenTemp;
       unit[x].innerHTML = "C";
       fahLink.innerHTML = "Convert to Fahrenheit";
     }
