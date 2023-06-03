@@ -27,33 +27,27 @@ for (let x = 1; x < 6; x++) {
 
 // For the cities from the bar
 let city1 = document.querySelector("#yangon");
-city1.addEventListener("click", showCity1);
+city1.addEventListener("click", showCity);
 
 let city2 = document.querySelector("#taunggyi");
-city2.addEventListener("click", showCity2);
+city2.addEventListener("click", showCity);
 
 let city3 = document.querySelector("#mandalay");
-city3.addEventListener("click", showCity3);
+city3.addEventListener("click", showCity);
 
-function showCity1(event) {
+function showCity(event) {
   event.preventDefault();
-  let city = document.querySelector(".city1");
-  let displayCity = city.innerHTML;
-  let apiKey = "62bc298785543e137bc6756e514eb1c3";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${displayCity}&units=metric&appid=${apiKey}`;
-  axios.get(`${apiUrl}`).then(showTemp);
-}
-function showCity2(event) {
-  event.preventDefault();
-  let city = document.querySelector(".city2");
-  let displayCity = city.innerHTML;
-  let apiKey = "62bc298785543e137bc6756e514eb1c3";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${displayCity}&units=metric&appid=${apiKey}`;
-  axios.get(`${apiUrl}`).then(showTemp);
-}
-function showCity3(event) {
-  event.preventDefault();
-  let city = document.querySelector(".city3");
+  let city;
+  if (event.target.innerHTML == "Yangon") {
+    city = document.querySelector("#yangon");
+  }
+  if (event.target.innerHTML == "Taunggyi") {
+    city = document.querySelector("#taunggyi");
+  }
+  if (event.target.innerHTML == "Mandalay") {
+    city = document.querySelector("#mandalay");
+  }
+
   let displayCity = city.innerHTML;
   let apiKey = "62bc298785543e137bc6756e514eb1c3";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${displayCity}&units=metric&appid=${apiKey}`;
@@ -96,7 +90,7 @@ function currentPosition(position) {
 
 // Showing Temperature
 function showTemp(response) {
-  console.log(response);
+  
   let currentCity = document.querySelector("#default-city");
   currentCity.innerHTML = response.data.name;
   let temperature = Math.round(response.data.main.temp);
