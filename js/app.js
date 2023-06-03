@@ -20,7 +20,7 @@ for (let x = 1; x < 6; x++) {
   let nextDay = document.querySelector(`.weather-day${x}`);
   let weekDay = now.getDay() + x;
   if (weekDay > 6) {
-    weekDay = x - 1;
+    weekDay = weekDay - 7;
   }
   nextDay.innerHTML = days[weekDay];
 }
@@ -90,7 +90,6 @@ function currentPosition(position) {
 
 // Showing Temperature
 function showTemp(response) {
-  
   let currentCity = document.querySelector("#default-city");
   currentCity.innerHTML = response.data.name;
   let temperature = Math.round(response.data.main.temp);
