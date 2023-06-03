@@ -82,7 +82,6 @@ function showPosition() {
 }
 
 function currentPosition(position) {
-  
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
 
@@ -94,14 +93,30 @@ function currentPosition(position) {
 
 // Showing Temperature
 function showTemp(response) {
+  console.log(response);
   if (!response.data.city) return false;
-  
+
   let currentCity = document.querySelector("#default-city");
   currentCity.innerHTML = response.data.city;
-  
+
   let temperature = Math.round(response.data.daily[0].temperature.day);
   let cityTemp = document.querySelector(".city-temp");
   cityTemp.innerHTML = temperature;
+
+  let todayIcon = document.querySelector("#today-weather-icon");
+  todayIcon.setAttribute("src", `${response.data.daily[0].condition.icon_url}`);
+
+  for (let x = 1; x < 6; x++) {
+    let temperature = Math.round(response.data.daily[x].temperature.day);
+    let nextTemp = document.querySelector(`#temp${x}`);
+    nextTemp.innerHTML = temperature;
+
+    let nextIcon = document.querySelector(`#weather-icon${x}`);
+    nextIcon.setAttribute(
+      "src",
+      `${response.data.daily[x].condition.icon_url}`
+    );
+  }
 
   let humidity = document.querySelector("#humidity");
   humidity.innerHTML = response.data.daily[0].temperature.humidity;
@@ -119,7 +134,7 @@ fahLink.addEventListener("click", convertTemp);
 
 function convertTemp() {
   let unit = document.querySelectorAll("#unit");
-  let curTemp = document.querySelectorAll("#temp");
+  let curTemp = document.querySelectorAll(".temp");
 
   for (let x = 0; x < curTemp.length; x++) {
     let tempUnit = unit[x].innerHTML;
