@@ -1,32 +1,28 @@
 let now = new Date();
 
-let days = [
-  "Sun",
-  "Mon",
-  "Tue",
-  "Wed",
-  "Thu",
-  "Fri",
-  "Sat",
-];
+let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 let day = days[now.getDay()];
 let hour = now.getHours();
 let minutes = now.getMinutes();
-if(hour < 10) {hour = `0${hour}`};
-if(minutes < 10) {minutes = `0${minutes}`};
+if (hour < 10) {
+  hour = `0${hour}`;
+}
+if (minutes < 10) {
+  minutes = `0${minutes}`;
+}
 
 let today = document.querySelector("#default-time");
 today.innerHTML = `${day} ${hour}:${minutes}`;
 
 // For the week days
-for (let x = 1; x < 6; x++){
-let nextDay = document.querySelector(`.weather-day${x}`);
- let weekDay = now.getDay() + x;
- if(weekDay > 6) {
-  weekDay=x-2;
- }
- nextDay.innerHTML= days[weekDay];
+for (let x = 1; x < 6; x++) {
+  let nextDay = document.querySelector(`.weather-day${x}`);
+  let weekDay = now.getDay() + x;
+  if (weekDay > 6) {
+    weekDay = x - 1;
+  }
+  nextDay.innerHTML = days[weekDay];
 }
 
 // For the cities from the bar
@@ -112,7 +108,6 @@ function showTemp(response) {
   wind.innerHTML = response.data.wind.speed;
   let weatherState = document.querySelector("#weather-state");
   weatherState.innerHTML = response.data.weather[0].main;
-
 }
 
 // Convert Temp
