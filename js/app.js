@@ -94,7 +94,16 @@ function currentPosition(position) {
 // Showing Temperature
 function showTemp(response) {
   console.log(response);
+  
   if (!response.data.city) return false;
+
+  let unit = document.querySelector(".unit1");
+  if(unit.innerHTML == "F") {
+    alert("Convert temperature back to Celsius! Please! If you don't convert it,this will not work!");
+    return false;
+  }
+  
+  
 
   let currentCity = document.querySelector("#default-city");
   currentCity.innerHTML = response.data.city;
