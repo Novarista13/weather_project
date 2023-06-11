@@ -97,19 +97,21 @@ function showTemp(response) {
   
   if (!response.data.city) return false;
 
-  let unit = document.querySelector(".unit1");
-  if(unit.innerHTML == "F") {
-    alert("Convert temperature back to Celsius! Please! If you don't convert it,this will not work!");
-    return false;
-  }
+  // let unit = document.querySelector(".unit1");
+  // if(unit.innerHTML == "F") {
+  //   alert("Convert temperature back to Celsius! Please! If you don't convert it,this will not work!");
+  //   return false;
+  // }
   
-  
-
   let currentCity = document.querySelector("#default-city");
   currentCity.innerHTML = response.data.city;
 
   let temperature = Math.round(response.data.daily[0].temperature.day);
   let cityTemp = document.querySelector(".city-temp");
+  let unit = document.querySelector(".city-unit");
+  if (unit.innerHTML == "F") {
+    temperature = Math.round((temperature * 9) / 5 + 32);
+  }
   cityTemp.innerHTML = temperature;
 
   let todayIcon = document.querySelector("#today-weather-icon");
@@ -118,6 +120,11 @@ function showTemp(response) {
   for (let x = 1; x < 6; x++) {
     let temperature = Math.round(response.data.daily[x].temperature.day);
     let nextTemp = document.querySelector(`#temp${x}`);
+    let unit = document.querySelector(`.unit${x}`);
+    if (unit.innerHTML == "F")  {
+      temperature = Math.round((temperature * 9) / 5 + 32);
+    }
+    
     nextTemp.innerHTML = temperature;
 
     let nextIcon = document.querySelector(`#weather-icon${x}`);
