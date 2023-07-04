@@ -1,19 +1,25 @@
 .container {
   line-height: 1.5;
   font-size: 18px;
-  margin-top: 30px;
+  display: block;
+
   font-family: "Gruppo", cursive;
   font-family: "Poppins", sans-serif;
 }
 .weather {
   background-image: url(https://png.pngtree.com/thumb_back/fh260/background/20200801/pngtree-blue-sky-in-the-soft-white-clouds-natural-sky-background-illustration-image_374179.jpg);
   background-size: cover;
-  margin: 0;
-  padding: 20px 16px 10px;
-  width: 598px;
+  margin: 30px auto;
+  margin-bottom: 0;
+  max-width: 750px;
+  padding: 10px 16px 10px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 2px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   border-radius: 10px;
+}
+#today-weather-icon {
+  display: block;
+  margin: 0 auto;
 }
 .cities {
   justify-content: space-evenly;
@@ -53,10 +59,13 @@
   background: #bbe1ff;
 }
 .sub-head {
-  margin: 20px;
-  margin-top: 0;
   text-align: center;
-  padding-left: 15px;
+}
+.weather-rows {
+  margin-top: 20px;
+}
+.city-state {
+  margin-top: 20px;
 }
 .current-city {
   font-size: 45px;
@@ -83,11 +92,8 @@
 }
 .fah-link {
   display: block;
-  margin: 20px 170px;
+  margin: 0 250px;
   text-decoration: none;
-}
-footer {
-  margin-left: 145px;
 }
 .deg-unit {
   color: #202124;

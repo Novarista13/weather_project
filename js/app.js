@@ -94,7 +94,7 @@ function currentPosition(position) {
 // Showing Temperature
 function showTemp(response) {
   console.log(response);
-  
+
   if (!response.data.city) return false;
 
   // let unit = document.querySelector(".unit1");
@@ -102,7 +102,6 @@ function showTemp(response) {
   //   alert("Convert temperature back to Celsius! Please! If you don't convert it,this will not work!");
   //   return false;
   // }
-  
   let currentCity = document.querySelector("#default-city");
   currentCity.innerHTML = response.data.city;
 
@@ -121,10 +120,9 @@ function showTemp(response) {
     let temperature = Math.round(response.data.daily[x].temperature.day);
     let nextTemp = document.querySelector(`#temp${x}`);
     let unit = document.querySelector(`.unit${x}`);
-    if (unit.innerHTML == "F")  {
+    if (unit.innerHTML == "F") {
       temperature = Math.round((temperature * 9) / 5 + 32);
     }
-    
     nextTemp.innerHTML = temperature;
 
     let nextIcon = document.querySelector(`#weather-icon${x}`);

@@ -53,34 +53,43 @@
         </div>
 
         <div class="row sub-head">
-          <div class="col-6 border-end border-success">
-            <div class="current-city" id="default-city">Thanlyin</div>
-            <div class="weather-day" id="default-time">Sunday 18:00</div>
+          <div class="col-4">
+            <div class="city-state">
+              <div class="current-city" id="default-city">Thanlyin</div>
+              <div class="weather-day" id="default-time">Sunday 18:00</div>
+            </div>
           </div>
 
-          <div class="col-6 sub-head-right">
+          <div class="col-8 sub-head-right">
             <div class="row">
-              <img
-                src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/scattered-clouds-day.png"
-                class="col-3"
-                alt="icon"
-                id="today-weather-icon"
-                style="width: 120px; height: 100px"
-              />
+              <div class="col-6">
+                <img
+                  src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/scattered-clouds-day.png"
+                  class="col-12"
+                  alt="icon"
+                  id="today-weather-icon"
+                  style="width: 120px; height: 100px"
+                />
+                <div class="col-12 text-center">
+                  <span class="weather-temperature city-temp temp" id="temp"
+                    >18</span
+                  ><span class="deg-unit"
+                    >°<span id="unit" class="city-unit">C</span></span
+                  >
+                </div>
+              </div>
 
-              <span class="col-2 weather-temperature city-temp temp" id="temp"
-                >18</span
-              ><span class="col-2 deg-unit">°<span id="unit" class="city-unit">C</span></span>
-            </div>
-
-            <div class="weather-state">
-              Currently: <strong><span id="weather-state"></span></strong>
-            </div>
-            <div class="wind">
-              Wind: <strong><span id="wind"></span></strong> Km/H
-            </div>
-            <div class="humidity">
-              humidity: <strong><span id="humidity"></span></strong> %
+              <div class="col-6 weather-rows">
+                <div class="weather-state">
+                  Currently: <strong><span id="weather-state"></span></strong>
+                </div>
+                <div class="wind">
+                  Wind: <strong><span id="wind"></span></strong> Km/H
+                </div>
+                <div class="humidity">
+                  humidity: <strong><span id="humidity"></span></strong> %
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -155,17 +164,18 @@
           >Convert to Fahrenheit</a
         >
       </div>
+      <footer class="text-center">
+        Coded by Nova and
+        <a href="https://github.com/Novarista13/weather_project" target="_blank"
+          >Open-Sourced on GitHub</a
+        >
+        and hosted on
+        <a href="https://keen-granita-755fc6.netlify.app/" target="_blank"
+          >Neltify</a
+        >
+      </footer>
     </div>
-    <footer>
-      Coded by Nova and
-      <a href="https://github.com/Novarista13/weather_project" target="_blank"
-        >Open-Sourced on GitHub</a
-      >
-      and hosted on
-      <a href="https://keen-granita-755fc6.netlify.app/" target="_blank"
-        >Neltify</a
-      >
-    </footer>
+
     <script src="js/app.js"></script>
   </body>
 </html>
