@@ -1,17 +1,20 @@
 @media (max-width: 800px) {
+  .bar {
+    width: 150px;
+  }
 }
 
 .container {
   line-height: 1.5;
   font-size: 18px;
   display: block;
-
   font-family: "Gruppo", cursive;
   font-family: "Poppins", sans-serif;
 }
 .weather {
   background-image: url(https://png.pngtree.com/thumb_back/fh260/background/20200801/pngtree-blue-sky-in-the-soft-white-clouds-natural-sky-background-illustration-image_374179.jpg);
   background-size: cover;
+  position: relative;
   margin: 30px auto;
   margin-bottom: 0;
   max-width: 750px;
@@ -44,7 +47,6 @@
   margin: 25px 10px;
   text-align: center;
   display: inline;
-  width: 100%;
 }
 .bar {
   border: 1px solid #0d0b88;
