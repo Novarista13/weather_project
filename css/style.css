@@ -1,3 +1,6 @@
+@media (max-width: 800px) {
+}
+
 .container {
   line-height: 1.5;
   font-size: 18px;
@@ -27,6 +30,7 @@
   margin-bottom: 25px;
   margin: 10px;
   border-radius: 10px;
+  width: 100%;
 }
 .city {
   text-decoration: none;
@@ -40,10 +44,10 @@
   margin: 25px 10px;
   text-align: center;
   display: inline;
+  width: 100%;
 }
 .bar {
   border: 1px solid #0d0b88;
-  width: 350px;
   border-radius: 10px;
   height: 35px;
 }
@@ -53,6 +57,7 @@
   border-radius: 10px;
   background: #ffffff;
   height: 35px;
+  margin-top: 10px;
 }
 [value]:hover,
 .current-location:hover {
@@ -72,7 +77,6 @@
 }
 .weathers {
   text-align: center;
-  padding-left: 45px;
 }
 .weather-bottom {
   margin: 20px 0;
@@ -92,7 +96,8 @@
 }
 .fah-link {
   display: block;
-  margin: 0 250px;
+  width: 100%;
+  text-align: center;
   text-decoration: none;
 }
 .deg-unit {
